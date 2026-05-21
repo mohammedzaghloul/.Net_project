@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in · ShopHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to track orders and unlock member deals.</p>
+
+      <div class="demo-box">
+        Demo credentials: <b>emilys</b> / <b>emilyspass</b>
+        <br><span class="muted" style="font-size:12px;">Any DummyJSON user works; see <a href="https://dummyjson.com/users" target="_blank" rel="noopener">users list</a>.</span>
+      </div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label>Username</label>
+          <input name="username" required autocomplete="username" value="emilys"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input name="password" type="password" required autocomplete="current-password" value="emilyspass"/>
+        </div>
+        <button class="btn block lg" type="submit" id="submit">Sign in</button>
+      </form>
+
+      <div class="divider">or</div>
+
+      <a class="btn block secondary" href="register.html">Create an account</a>
+      <p class="auth-foot"><a href="index.html">← Back to store</a></p>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
