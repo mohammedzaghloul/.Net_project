@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop · ShopHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <div class="listing">
+      <aside class="filters">
+        <div class="filter-group">
+          <h4>Categories</h4>
+          <div id="cat-filter" style="max-height:340px;overflow:auto;padding-right:8px;"></div>
+        </div>
+        <div class="filter-group">
+          <h4>Price</h4>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input id="min-price" type="number" min="0" placeholder="Min" class="form-group" style="height:36px;padding:0 10px;border:1px solid var(--border);border-radius:8px;width:80px;background:var(--bg-elev);"/>
+            <span class="dim">to</span>
+            <input id="max-price" type="number" min="0" placeholder="Max" class="form-group" style="height:36px;padding:0 10px;border:1px solid var(--border);border-radius:8px;width:80px;background:var(--bg-elev);"/>
+          </div>
+          <button id="apply-price" class="btn sm secondary" style="margin-top:10px;width:100%;">Apply</button>
+        </div>
+        <div class="filter-group">
+          <h4>Rating</h4>
+          <label><input type="radio" name="rating" value="" checked /> Any rating</label>
+          <label><input type="radio" name="rating" value="4" /> 4★ & up</label>
+          <label><input type="radio" name="rating" value="3" /> 3★ & up</label>
+        </div>
+        <div class="filter-group">
+          <h4>Availability</h4>
+          <label><input type="checkbox" id="in-stock"/> In stock only</label>
+        </div>
+        <button id="clear-filters" class="btn sm ghost" style="margin-top:6px;">Clear all filters</button>
+      </aside>
+
+      <section>
+        <div class="listing-head">
+          <div>
+            <h2 id="listing-title" style="margin:0;">All products</h2>
+            <div class="count" id="listing-count">Loading…</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <label class="muted" style="font-size:13px;">Sort</label>
+            <select id="sort" class="select">
+              <option value="">Featured</option>
+              <option value="price-asc">Price: low → high</option>
+              <option value="price-desc">Price: high → low</option>
+              <option value="rating-desc">Rating: high → low</option>
+              <option value="title-asc">Name: A → Z</option>
+              <option value="title-desc">Name: Z → A</option>
+            </select>
+          </div>
+        </div>
+        <div id="grid" class="product-grid"></div>
+        <div id="pagination" class="pagination"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

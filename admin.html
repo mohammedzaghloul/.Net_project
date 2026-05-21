@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin · ShopHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container admin-layout">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+      <div>
+        <span class="kicker">Admin</span>
+        <h1 style="margin:6px 0 0;">Dashboard</h1>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span class="muted" style="font-size:13px;">Logged in as <b id="admin-name" style="color:var(--text);"></b></span>
+      </div>
+    </div>
+
+    <div class="admin-stats" id="stats"></div>
+
+    <div class="admin-toolbar">
+      <input id="admin-search" placeholder="Search products by title…" style="height:40px;padding:0 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg-elev);font-size:14px;min-width:280px;color:var(--text);"/>
+      <button class="btn" id="add-product">+ Add product</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Rating</th>
+            <th style="text-align:right;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- product modal -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal">
+      <button class="close" id="modal-close" aria-label="Close">×</button>
+      <h3 id="modal-title">Add product</h3>
+      <form id="product-form">
+        <input type="hidden" name="id"/>
+        <div class="form-group"><label>Title</label><input name="title" required/></div>
+        <div class="form-row">
+          <div class="form-group"><label>Category</label><input name="category" required/></div>
+          <div class="form-group"><label>Brand</label><input name="brand"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Price (USD)</label><input name="price" type="number" min="0" step="0.01" required/></div>
+          <div class="form-group"><label>Discount %</label><input name="discountPercentage" type="number" min="0" max="100" step="0.1" value="0"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Stock</label><input name="stock" type="number" min="0" value="0" required/></div>
+          <div class="form-group"><label>Rating</label><input name="rating" type="number" min="0" max="5" step="0.1" value="4.5"/></div>
+        </div>
+        <div class="form-group"><label>Thumbnail URL</label><input name="thumbnail" type="url"/></div>
+        <div class="form-group"><label>Description</label><textarea name="description"></textarea></div>
+        <div style="display:flex;gap:8px;justify-content:flex-end;">
+          <button type="button" class="btn secondary" id="modal-cancel">Cancel</button>
+          <button type="submit" class="btn" id="modal-save">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

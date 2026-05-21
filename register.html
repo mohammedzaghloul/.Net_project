@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create account · ShopHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <h1>Create an account</h1>
+      <p class="muted">Sign up to save your cart, track orders, and get member-only deals.</p>
+
+      <form id="register-form">
+        <div class="form-row">
+          <div class="form-group"><label>First name</label><input name="firstName" required/></div>
+          <div class="form-group"><label>Last name</label><input name="lastName" required/></div>
+        </div>
+        <div class="form-group"><label>Username</label><input name="username" required autocomplete="username"/></div>
+        <div class="form-group"><label>Email</label><input name="email" type="email" required autocomplete="email"/></div>
+        <div class="form-row">
+          <div class="form-group"><label>Password</label><input name="password" type="password" required minlength="6" autocomplete="new-password"/></div>
+          <div class="form-group"><label>Confirm password</label><input name="confirm" type="password" required minlength="6" autocomplete="new-password"/></div>
+        </div>
+        <div class="form-group" style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);">
+          <input id="terms" type="checkbox" required style="width:auto;height:auto;"/>
+          <label for="terms" style="margin:0;">I agree to the <a href="#" style="color:var(--primary);">Terms of Service</a> and <a href="#" style="color:var(--primary);">Privacy Policy</a>.</label>
+        </div>
+        <button class="btn block lg" type="submit" id="submit">Create account</button>
+      </form>
+
+      <p class="auth-foot">Already have an account? <a href="login.html">Sign in</a></p>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>
